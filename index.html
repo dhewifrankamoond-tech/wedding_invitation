@@ -20,23 +20,15 @@
 
     <!-- Script Pemuat Konfigurasi YAML untuk Meta Tag -->
     <script type="module">
-      import { config } from '/src/loadConfig.js';
+        import { config } from './src/loadConfig.js';
 
-      if (config && config.wedding) {
-        // Set judul halaman tab browser
-        document.title = `${config.wedding.title} - ${config.wedding.couple_short}`;
-
-        // Set meta tag Open Graph (Pratinjau WhatsApp)
-        const ogTitle = document.getElementById('og-title');
-        if (ogTitle) {
-          ogTitle.setAttribute('content', `${config.wedding.title} ${config.wedding.couple_short}`);
+        if (config && config.wedding) {
+            document.title = `${config.wedding.title} - ${config.wedding.couple_short}`;
+            const ogTitle = document.getElementById('og-title');
+            if (ogTitle) ogTitle.setAttribute('content', `${config.wedding.title} ${config.wedding.couple_short}`);
+            const ogDesc = document.getElementById('og-description');
+            if (ogDesc) ogDesc.setAttribute('content', `${config.wedding.quote || 'Kami mengundang Anda untuk hadir di acara pernikahan kami.'}`);
         }
-
-        const ogDesc = document.getElementById('og-description');
-        if (ogDesc) {
-          ogDesc.setAttribute('content', `${config.wedding.quote || 'Kami mengundang Anda untuk hadir di acara pernikahan kami.'}`);
-        }
-      }
     </script>
   </head>
   <body>

@@ -1,6 +1,11 @@
 import { createClient } from '@libsql/client/web';
 
-export const turso = createClient({
-  url: import.meta.env.VITE_TURSO_DATABASE_URL,
-  authToken: import.meta.env.VITE_TURSO_AUTH_TOKEN,
-});
+const url = import.meta.env.VITE_TURSO_DATABASE_URL || '';
+const authToken = import.meta.env.VITE_TURSO_AUTH_TOKEN || '';
+
+export const turso = (url && authToken) 
+  ? createClient({ url, authToken })
+  : {
+      // Dummy fallback jika token belum diset agar App tidak crash
+      execute: async () => ({ rows: [] })
+    };
