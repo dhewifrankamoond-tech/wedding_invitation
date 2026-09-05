@@ -50,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+    <div style={{ position: 'relative', width: '100%', height: '100dvh', overflow: 'hidden' }}>
         <audio ref={audioRef} src={bgMusic} loop />
 
         {!isOpen ? (
@@ -60,8 +60,8 @@ export default function App() {
             bgImage={mainCoupleImg} 
         />
         ) : (
-        <>
-            {/* Tombol akan mengunci ke #root di dalam simulator HP */}
+        <div style={{ position: 'relative', width: '100%', height: '100dvh' }}>
+            {/* Tombol melayang di atas container snap */}
             <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
 
             <div className="snap-container">
@@ -85,7 +85,7 @@ export default function App() {
                 <WishSection defaultGuestName={guestName} />
             </div>
             </div>
-        </>
+        </div>
         )}
     </div>
     );

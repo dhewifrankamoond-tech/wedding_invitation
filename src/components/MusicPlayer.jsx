@@ -5,12 +5,13 @@ export default function MusicPlayer({ isPlaying, onToggle }) {
     <button 
       onClick={onToggle}
       style={{
-        position: 'absolute', /* Mutlak terhadap bingkai #root */
-        bottom: '20px',
+        position: 'fixed',
+        /* Menggunakan safe-area-inset agar otomatis naik jika ada address bar HP */
+        bottom: 'max(20px, 15dvh)',
         right: '20px',
         zIndex: 99999,
-        width: '45px',
-        height: '45px',
+        width: '48px',
+        height: '48px',
         borderRadius: '50%',
         backgroundColor: 'var(--accent-color, #c5a059)',
         color: '#fff',
@@ -21,7 +22,8 @@ export default function MusicPlayer({ isPlaying, onToggle }) {
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: '1.2rem',
-        WebkitTapHighlightColor: 'transparent'
+        WebkitTapHighlightColor: 'transparent',
+        touchAction: 'manipulation'
       }}
       title={isPlaying ? 'Hentikan Musik' : 'Putar Musik'}
       aria-label="Toggle Music"

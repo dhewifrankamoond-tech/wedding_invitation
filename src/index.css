@@ -26,7 +26,8 @@ body {
   min-height: 100dvh;
   background-color: var(--white);
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  position: relative; /* Kunci penentu posisi absolute */
+  position: relative;
+  overflow: hidden; /* Mencegah tombol melompat keluar bingkai */
 }
 
 .hero-cover {
@@ -118,7 +119,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Wajib ada */
+  position: relative;
   overflow-y: auto;
 }
 
