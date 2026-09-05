@@ -50,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
         <audio ref={audioRef} src={bgMusic} loop />
 
         {!isOpen ? (
@@ -61,7 +61,9 @@ export default function App() {
         />
         ) : (
         <>
-            {/* Snap Scroll Container */}
+            {/* Tombol akan mengunci ke #root di dalam simulator HP */}
+            <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
+
             <div className="snap-container">
             <div className="snap-section">
                 <CoupleSection mainImg={mainCoupleImg} />
@@ -83,9 +85,6 @@ export default function App() {
                 <WishSection defaultGuestName={guestName} />
             </div>
             </div>
-
-            {/* MusicPlayer ditaruh di sini agar terkunci absolute ke #root */}
-            <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
         </>
         )}
     </div>
