@@ -1,0 +1,27 @@
+wedding:
+  title: "The Wedding Of"
+  couple_short: "Nadir & Dhewi"
+  groom_name: "Nadir Montague"
+  groom_parents: "Putra dari Bapak Montague & Ibu Montague"
+  bride_name: "Dhewi Capulet"
+  bride_parents: "Putri dari Bapak Capulet & Ibu Capulet"
+  quote: "Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan."
+  
+event:
+  title: "Akad Nikah & Resepsi"
+  date_string: "Sabtu, 24 Oktober 2026"
+  time_string: "Pukul: 09.00 WIB - Selesai"
+  location_name: "Gedung Pernikahan Indah, Jakarta"
+  target_date_iso: "2026-10-24T09:00:00"
+
+maps:
+  embed_url: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d247.90122150960843!2d106.84015427108616!3d-6.208263165175452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1788625399405!5m2!1sid!2sid"
+  direct_url: "https://maps.google.com/?q=-6.2082631,106.8401542"
+
+banks:
+  - name: "Bank BCA"
+    account_number: "1234567890"
+    account_holder: "a.n. Romeo Montague"
+  - name: "Bank Mandiri"
+    account_number: "0987654321"
+    account_holder: "a.n. Juliet Capulet"

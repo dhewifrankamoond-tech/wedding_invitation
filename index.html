@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Title & Meta Tags Bawaan (Akan diisi otomatis oleh script di bawah) -->
+    <title>Undangan Pernikahan</title>
+    
+    <!-- Meta Open Graph untuk Pratinjau WhatsApp/Medsos -->
+    <meta property="og:type" content="website" />
+    <meta id="og-title" property="og:title" content="Undangan Pernikahan" />
+    <meta id="og-description" property="og:description" content="Kami mengundang Anda untuk hadir di acara pernikahan kami." />
+    <meta property="og:image" content="/assets/wedding.jpg" />
+
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Script Pemuat Konfigurasi YAML untuk Meta Tag -->
+    <script type="module">
+      import { config } from '/src/loadConfig.js';
+
+      if (config && config.wedding) {
+        // Set judul halaman tab browser
+        document.title = `${config.wedding.title} - ${config.wedding.couple_short}`;
+
+        // Set meta tag Open Graph (Pratinjau WhatsApp)
+        const ogTitle = document.getElementById('og-title');
+        if (ogTitle) {
+          ogTitle.setAttribute('content', `${config.wedding.title} ${config.wedding.couple_short}`);
+        }
+
+        const ogDesc = document.getElementById('og-description');
+        if (ogDesc) {
+          ogDesc.setAttribute('content', `${config.wedding.quote || 'Kami mengundang Anda untuk hadir di acara pernikahan kami.'}`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
