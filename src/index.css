@@ -97,3 +97,44 @@ body {
   border-radius: 6px;
   font-size: 0.85rem;
 }
+
+/* Pastikan snap container tidak mengisolasi fixed element */
+.snap-container {
+  height: 100vh;
+  height: 100dvh; /* Dynamic Viewport Height untuk mobile */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Melancarkan scroll di iOS Safari */
+}
+
+.snap-section {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Tambahkan ini di bagian bawah src/index.css */
+.music-btn-floating {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999999;
+}
+
+/* Biar di tampilan desktop menempel di dalam bingkai mobile (max-width: 480px) */
+@media (min-width: 481px) {
+  .music-btn-floating {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+  }
+}

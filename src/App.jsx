@@ -13,7 +13,6 @@ import WishSection from './components/WishSection';
 import mainCoupleImg from './assets/wedding.jpg';
 import bgMusic from './assets/music.mp3';
 
-// Auto-import Galeri Foto
 const weddingImagesModules = import.meta.glob('./assets/wedding/*.{png,jpg,jpeg,webp,svg}', { eager: true });
 const galleryPhotos = Object.values(weddingImagesModules).map((module) => module.default);
 
@@ -52,28 +51,43 @@ export default function App() {
 
   return (
     <div>
-      <audio ref={audioRef} src={bgMusic} loop />
+        <audio ref={audioRef} src={bgMusic} loop />
 
-      {!isOpen ? (
+        {!isOpen ? (
         <Cover 
-          guestName={guestName} 
-          onOpen={handleOpenInvitation} 
-          bgImage={mainCoupleImg} 
+            guestName={guestName} 
+            onOpen={handleOpenInvitation} 
+            bgImage={mainCoupleImg} 
         />
-      ) : (
-        <div>
-          <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
-          <CoupleSection mainImg={mainCoupleImg} />
-          <EventSection />
-          <GallerySection photos={galleryPhotos} />
-          <BankSection />
-          <WishSection defaultGuestName={guestName} />
+        ) : (
+        <>
+            {/* Snap Scroll Container */}
+            <div className="snap-container">
+            <div className="snap-section">
+                <CoupleSection mainImg={mainCoupleImg} />
+            </div>
 
-          <footer className="content-section" style={{ fontSize: '0.8rem', color: '#888' }}>
-            <p>Terima kasih atas doa dan restu Anda.</p>
-          </footer>
-        </div>
-      )}
+            <div className="snap-section">
+                <EventSection />
+            </div>
+
+            <div className="snap-section">
+                <GallerySection photos={galleryPhotos} />
+            </div>
+
+            <div className="snap-section">
+                <BankSection />
+            </div>
+
+            <div className="snap-section">
+                <WishSection defaultGuestName={guestName} />
+            </div>
+            </div>
+
+            {/* MusicPlayer ditaruh di sini agar terkunci absolute ke #root */}
+            <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
+        </>
+        )}
     </div>
-  );
+    );
 }
